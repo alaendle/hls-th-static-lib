@@ -14,7 +14,7 @@ maintainer:     example@example.com
 copyright:      2023 Author name here
 license:        BSD3
 license-file:   LICENSE
-build-type:     Simple
+build-type:     Custom
 extra-source-files:
     README.md
     CHANGELOG.md
@@ -31,8 +31,11 @@ library
   hs-source-dirs:
       src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  extra-libraries:
+      parson
   build-depends:
       base >=4.7 && <5
+    , inline-c
   default-language: Haskell2010
 
 executable hls-th-exe
@@ -45,6 +48,7 @@ executable hls-th-exe
   build-depends:
       base >=4.7 && <5
     , hls-th
+    , inline-c
   default-language: Haskell2010
 
 test-suite hls-th-test
@@ -58,4 +62,5 @@ test-suite hls-th-test
   build-depends:
       base >=4.7 && <5
     , hls-th
+    , inline-c
   default-language: Haskell2010
